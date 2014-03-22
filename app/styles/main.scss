@@ -89,8 +89,22 @@ a:hover {
 }
 
 .social li {
-    display: block;
+    display: inline-block;
     padding-bottom: 7px;
+    color: white;
+}
+.social li a {
+  color: white;
+}
+.social li a:hover {
+  color: white;
+}
+.social li a:visited {
+  color: white;
+}
+.social li i {
+  color:white;
+  font-size: 1.75em;
 }
 
 .social li img {
@@ -117,11 +131,11 @@ nav ul li {
 }
 
 nav ul li a {
- color: white;   
+ color: white;
 }
 
 nav ul li a:visited {
- color: white;   
+ color: white;
 }
 
 nav ul li a:hover {
@@ -179,8 +193,19 @@ nav ul li a:hover {
 .form-buttons li{
     display: inline-block;
 }
-.contact-social {
+.social-list {
 
+  i {
+    padding-right: 5px;
+  }
+
+  a {
+    color:#343a41;
+  }
+
+  a:hover {
+    color: #2fafb1;
+  }
 }
 .contact-social li {
     display: block;
