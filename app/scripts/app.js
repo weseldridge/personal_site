@@ -25,7 +25,7 @@ angular.module('appApp', [
       })
       .when('/contact', {
         templateUrl: 'views/contact.html',
-        controller: 'MainCtrl'
+        controller: 'ContactCtrl'
       })
       .otherwise({
         redirectTo: '/'

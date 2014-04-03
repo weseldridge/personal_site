@@ -41,36 +41,47 @@
 					</div>
 				</div>
 				<div class="col-md-6">
-					<form role="form">
+					<form role="form" name="contactForm" ng-submit="submitForm(contactForm.$valid)" novalidate>
 						<div class="form-group">
 							<label for="name">Name</label>
-							<input type="text" class="form-control" id="name" placeholder="Enter Name">
+							<input type="text" class="form-control" id="name" ng-model="name" placeholder="Enter name" ng-minlength="3" ng-maxlength="15" required>
+							<p ng-show="contactForm.name.$invalid && !contactForm.name.$pristine" class="form-helper">
+								Please enter a name between 3 and 15 characters
+							</p>
 						</div>
 						<div class="form-group">
 							<label for="email">Email address</label>
-							<input type="email" class="form-control" id="email" placeholder="Enter email">
+							<input type="email" class="form-control" id="email" ng-model="email" placeholder="Enter email" ng-minlength="5" ng-maxlength="50" required>
+							<p ng-show="contactForm.email.$invalid && !contactForm.email.$pristine" class="form-helper">
+								Please enter an email addres between 3 and 50 characters
+							</p>
 						</div>
 						<div class="form-group">
 							<label for="url">Web site</label>
-							<input type="url" class="form-control" id="url" placeholder="Enter url">
+							<input type="url" class="form-control" id="url" ng-model="url" placeholder="Enter url" ng-minlength="5" ng-maxlength="100" >
+							<p ng-show="contactForm.url.$invalid || contactForm.url.$error.minlength || contactForm.url.$error.maxlength" class="form-helper">
+								Please enter a valid url between 5 and 100 characters
+							</p>
 						</div>
 						<div class="form-group">
-							<label for="url">Topic</label>
-							<select class="form-control">
-								<option>General</option>
-								<option>Support</option>
-								<option>Employment</option>
-							</select>
+							<label for="subject">Subject</label>
+							<input type="text" class="form-control" id="subject" ng-model="subject" placeholder="Enter subject" ng-minlength="3" ng-maxlength="20" required>
+							<p ng-show="contactForm.subject.$invalid && !contactForm.subject.$pristine" class="form-helper">
+								Please enter a subject between 3 and 20 characters
+							</p>
 						</div>
 						<div class="form-group">
 							<label for="url">Message</label>
-							<textarea class="form-control" rows="8"></textarea>
+							<textarea class="form-control" rows="8" ng-model="message" placeholder="Enter message" ng-minlength="10" ng-maxlength="500" required></textarea>
+							<p ng-show="contactForm.message.$invalid && !contactForm.message.$pristine" class="form-helper">
+								Please enter a message between 10 and 500 characters
+							</p>
 						</div>
 						<div class="form-group">
 							<div class="col-sm-offset-2 col-sm-10">
 								<ul class="pull-right form-buttons">
-									<li><button type="submit" disabled="disabled" class="btn btn-default btn-lg pull-right">Reset</button></li>
-									<li><button type="submit" disabled="disabled" class="btn btn-default btn-lg pull-right">Send</button></li>
+									<li><button type="reset"  class="btn btn-default btn-lg pull-right">Reset</button></li>
+									<li><button type="submit" ng-disabled="contactForm.$invalid" class="btn btn-default btn-lg pull-right">Send</button></li>
 								</ul>
 							</div>
 						</div>
